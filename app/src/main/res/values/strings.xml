@@ -40,6 +40,8 @@
     <string name="Followers">Followers</string>
     <string name="FollowersNotification">followed you.</string>
     <string name="MentionsNotification">mentioned you </string>
+    <string name="LikesNotification">liked your tweet </string>
+    <string name="RetweetsNotification"> retweeted your tweet </string>
     <string name="Tweet">Nova</string>
     <string name="WhatsHappening">What\'s Happening?</string>
     <!-- TODO: Remove or change this placeholder text -->

@@ -5,11 +5,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -40,6 +42,7 @@ public class ProfilePage extends AppCompatActivity {
         final TabLayout ProfilePage_TabLayout = findViewById(R.id.TabLayout_Profile);
         ViewPager ProfilePage_ViewPage = findViewById(R.id.ViewPager_Profile);
         TextView Back=findViewById(R.id.Textview_Profile_Back);
+        ImageView ReplyOnTweet = findViewById(R.id.Tweet_RepliesIcon);
         ProfilePage_Adapter adapter = new ProfilePage_Adapter(getSupportFragmentManager());
         adapter.AddFragment("one", new profile_page_tweets());
         adapter.AddFragment("two", new profile_page_retweets());
@@ -62,6 +65,16 @@ public class ProfilePage extends AppCompatActivity {
         ScreenName.setText(screenname);
         UserName.setText(name);
 
+
+        ReplyOnTweet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ReplyOnTweet alertDialog = new ReplyOnTweet();
+                FragmentManager f = getSupportFragmentManager();
+                alertDialog.show(f, "fragment_alert");
+            }
+        });
+        
         SignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
